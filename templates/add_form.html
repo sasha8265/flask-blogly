@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Add New User{% endblock %}
+
+{% block content %}
+
+<form method="POST">
+
+    <div class="form-floating mb-3">
+        <input name="first_name" class="form-control" id="first_name" placeholder="first name">
+        <label for="first_name">first name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input name="last_name" class="form-control" id="last_name" placeholder="last name">
+        <label for="last_name">last name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input name="image_url" class="form-control" id="image_url" placeholder="image url">
+        <label for="image_url">image url</label>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Add User</button>
+
+</form>
+
+{% endblock %}

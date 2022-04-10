@@ -7,7 +7,18 @@
 <h2 class="display-4">{{user.first_name}} {{user.last_name}}</h2>
 
 <img src="{{user.image_url}}" alt="">
-<button class="btn btn-outline-primary">Edit</button>
-<button class="btn btn-outline-danger">Delete</button>
+
+<form>
+    <button class="btn btn-outline-primary"
+    formaction="/users/{{ user.id }}/edit-user"
+    formmethod="get">Edit</button>
+
+    <button class="btn btn-outline-danger"
+    formaction="/users/{{ user.id }}/delete-user"
+    formmethod="POST">Delete</button>
+</form>
+
+
+<p><a href="/">Back to List</a></p>
 
 {% endblock %}

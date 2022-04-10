@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Add New User{% endblock %}
+{% block title %}Edit User{% endblock %}
 
 {% block content %}
 
-<form action="/" method="POST">
+<form method="POST">
+    <h2 class="display-4">Edit User:</h2>
+    <h2 class="display-6">{{user.first_name}} {{user.last_name}}</h2>
 
     <div class="form-floating mb-3">
         <input name="first_name" class="form-control" id="first_name" placeholder="first name">
@@ -21,7 +23,7 @@
         <label for="image_url">image url</label>
     </div>
 
-    <button class="btn btn-outline-primary">Submit</button>
+    <button type="submit" class="btn btn-outline-primary">Save</button>
 
 </form>
 
