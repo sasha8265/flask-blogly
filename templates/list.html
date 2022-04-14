@@ -4,9 +4,9 @@
 
 {% block content %}
 
-<h2 class="display-4">Users</h2>
+<h2 class="display-4 ">Users</h2>
 
-<ul>
+<ul id="users-list">
     {% for user in users %}
     <li><a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
     {% endfor %}
