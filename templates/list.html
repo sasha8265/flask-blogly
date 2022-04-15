@@ -1,19 +1,40 @@
 {% extends 'base.html' %}
 
-{% block title %}Users{% endblock %}
-
 {% block content %}
 
-<h2 class="display-4 ">Users</h2>
+<div class="container mt-5">
+    
+    <div class="row">
+        <div class="col">
+            <table style="width:100%">
+                <tbody>
+                    <tr>
+                        <td class="">
+                            <h2 style="line-height: 0.8em" class="display-4 mb-0">Users</h2>
+                        </td>
+            
+                        <td>
+                            <form class="text-end" action="/users/add-user">
+                                <button class="btn btn-outline-primary">Add User</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
 
-<ul id="users-list">
-    {% for user in users %}
-    <li><a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
-    {% endfor %}
-</ul>
+    <div class="row">
+        <div class="col mt-4">
+            <ul style="line-height: 3em;" id="users-list">
+                {% for user in users %}
+                <li class="fs-4"><a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
-<form action="/users/add-user">
-    <button class="btn btn-outline-primary">Add User</button>
-</form>
+</div>
 
 {% endblock %}

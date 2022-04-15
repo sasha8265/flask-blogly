@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="display-4 mb-4">Edit Post:</h2>
+            <h3 class="fs-4 mb-5">{{post.title}} by: {{post.user.first_name}} {{post.user.last_name}}</h3>
+
+                <form method="POST">
+
+                    <div class="mb-3">
+                        <input name="title" class="form-control" id="title" placeholder="title">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <textarea class="form-control mb-3" name="content" id="content" rows="15" placeholder="content"></textarea>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-outline-info">Save</button>
+                        <a href="/users" class="btn btn-outline-secondary mx-3">Cancel</a>
+                    </div>
+
+
+                </form>
+
+                {% endblock %}

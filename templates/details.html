@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %}Users{% endblock %}
 
 {% block content %}
 
@@ -23,7 +22,7 @@
             <h3 class="mt-5">Posts</h3>
             <ul id="posts-list">
                 {% for post in posts %}
-                <li><a href="/users/{{user.id}}">{{post.title}}</a></li>
+                <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
                 {% endfor %}
             </ul>
             <form>

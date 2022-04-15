@@ -30,10 +30,10 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    # user = db.relationship('User')
+    user = db.relationship('User')
 
     @property
-    def pretty_date(self):
+    def format_date(self):
         """Return nicely-formatted date."""
 
         return self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")
