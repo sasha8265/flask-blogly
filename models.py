@@ -13,6 +13,8 @@ DEFAULT_IMG_URL = "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_
 
 """Models for Blogly."""
 class User(db.Model):
+    """Site User"""
+
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -21,7 +23,10 @@ class User(db.Model):
     image_url = db.Column(db.String, default=DEFAULT_IMG_URL)
 
 
+
 class Post(db.Model):
+    """User Posts"""
+
     __tablename__ = "posts"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -34,6 +39,6 @@ class Post(db.Model):
 
     @property
     def format_date(self):
-        """Return nicely-formatted date."""
+        """Return better formatted date."""
 
         return self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")

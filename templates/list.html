@@ -3,12 +3,13 @@
 {% block content %}
 
 <div class="container mt-5">
-    
+
     <div class="row">
         <div class="col">
             <table style="width:100%">
                 <tbody>
                     <tr>
+
                         <td class="">
                             <h2 style="line-height: 0.8em" class="display-4 mb-0">Users</h2>
                         </td>
@@ -18,18 +19,35 @@
                                 <button class="btn btn-outline-primary">Add User</button>
                             </form>
                         </td>
+
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
     <hr>
+    
+    <a class="link-dark text-decoration-none" href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+        viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+        </svg> Home</a>
 
-    <div class="row">
+    <div class="row mt-3">
         <div class="col mt-4">
             <ul style="line-height: 3em;" id="users-list">
                 {% for user in users %}
-                <li class="fs-4"><a href="/users/{{user.id}}">{{user.first_name}} {{user.last_name}}</a></li>
+                <div class="mb-5">
+                    <h3 class="fw-light">
+                        <a class="link-dark text-decoration-none" href="/users/{{user.id}}">
+                            <span class="img-icon">
+                                <img src="{{user.image_url}}" alt="">
+                            </span>{{user.first_name}} {{user.last_name}}
+                        </a>
+                    </h3>
+                </div>
+                
                 {% endfor %}
             </ul>
         </div>

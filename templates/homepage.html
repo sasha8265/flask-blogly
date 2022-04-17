@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <table style="width:100%">
+                <tbody>
+                    <tr>
+                        <td class="">
+                            <h2 style="line-height: 0.8em" class="display-4 mb-0">Recent Posts</h2>
+                        </td>
+
+                        <td>
+                            <form class="text-end" action="/users/add-user">
+                                <button class="btn btn-outline-primary">Add User</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col mt-4">
+            
+            {% for post in posts %}
+            <div class="mb-5">
+                <h3 class="fw-light">
+                    <a class="link-dark text-decoration-none" href="/posts/{{post.id}}">
+                        {{post.title}}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg>
+                    </a>
+                </h3>
+                <p style="letter-spacing: 1px" class="fw-light fs-6 text-secondary">{{ post.format_date }} | By <a class="link-secondary" href="/users/{{post.user_id}}">{{post.user.first_name}} {{post.user.last_name}}</a></p>
+                <hr>
+            </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+{% endblock %}

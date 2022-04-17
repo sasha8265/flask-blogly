@@ -13,8 +13,9 @@ db.create_all()
 
 @app.route('/')
 def root():
-    """Homepage redirects to list of users."""
-    return redirect("/users")
+    """Shows list of most recent posts - title, author and created date/time"""
+    posts = Post.query.order_by(Post.created_at.desc()).all()
+    return render_template("homepage.html", posts=posts)
 
 
 @app.route("/users")
