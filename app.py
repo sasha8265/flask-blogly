@@ -18,6 +18,8 @@ def root():
     return render_template("homepage.html", posts=posts)
 
 
+"""USER ROUTES"""
+
 @app.route("/users")
 def list_users():
     """List all existing users"""
@@ -96,6 +98,9 @@ def new_post(user_id):
     return redirect(f"/users/{user_id}")
 
 
+
+"""POSTS ROUTES"""
+
 @app.route('/posts/<int:post_id>')
 def show_post_details(post_id):
     post = Post.query.get_or_404(post_id)
@@ -132,3 +137,14 @@ def delete_post(post_id):
     return redirect(f"/users/{user.id}")
 
 
+
+"""TAG ROUTES"""
+
+@app.route('/tags')
+def show_all_tags():
+    tags = Tag.query.all()
+    return render_template("tags/tags_index.html", tags=tags)
+
+
+# @app.route('/tags/<int:tag_id>')
+# def show_tag_details(tag_id):

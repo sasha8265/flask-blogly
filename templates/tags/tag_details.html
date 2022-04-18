@@ -39,10 +39,12 @@
     <div class="row">
         <div style="padding: 100px 250px 0 250px" id="post-content">
             <h3>{{ tag.tag_name }}</h3>
+            {% if tag.posts %}
+
             {% for post in tag.posts %}
             
             <a href="/posts/{{post.id}}">
-                <p>{{ post.title }}</p>
+                <p>{{ tag.post.title }}</p>
             </a>
 
 

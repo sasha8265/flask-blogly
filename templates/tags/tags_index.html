@@ -40,9 +40,21 @@
                 {% for tag in tags %}
                 <div class="mb-5">
                     <h3 class="fw-light">
-                        <a class="link-dark text-decoration-none" href="/tags/{{tag.id}}">
+                        <a class="link-dark text-decoration-none" href="/tags/{{tag.id}}">{{ tag.tag_name }}
                         </a>
                     </h3>
+                    {% if tag.posts %}
+                    <ul>
+                    {% for post in tag.posts %}
+                        <li>
+                            <a href="/posts/{{ post.id }}" class="link-secondary">{{ post.title }}</a>
+                        </li>
+                    
+                    {% endfor %}
+
+                    </ul>
+                    {% endif %}
+
                 </div>
 
                 {% endfor %}
