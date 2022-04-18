@@ -39,7 +39,21 @@
                         </svg>
                     </a>
                 </h3>
-                <p style="letter-spacing: 1px" class="fw-light fs-6 text-secondary">{{ post.format_date }} | By <a class="link-secondary" href="/users/{{post.user_id}}">{{post.user.first_name}} {{post.user.last_name}}</a></p>
+                <div class="row">
+                    <div class="col">
+                        <p style="letter-spacing: 1px" class="fw-light fs-6 text-secondary">{{ post.format_date }} | By <a
+                                class="link-secondary" href="/users/{{post.user_id}}">{{post.user.first_name}} {{post.user.last_name}}</a></p>
+                    </div>
+            
+                    <div class="col text-end">
+                        <!-- {% for tag in post_tags %} -->
+
+                        <a href="" class="btn btn-primary btn-sm mx-2">{{ tag.tag_name }}</a>
+
+                        <!-- {% endfor %} -->
+                    </div>
+                </div>
+                
                 <hr>
             </div>
             {% endfor %}
