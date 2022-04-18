@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="display-4 mb-4">New Tag</h2>
+
+            <form method="POST">
+
+                <div class="form-floating mb-3">
+                    <input name="tag_name" class="form-control" id="tag_name" placeholder="tag name">
+                    <label for="tag_name">tag name</label>
+                </div>
+
+                <div class="form-group row">
+                    <div class="ml-auto mr-3">
+                        <button type="submit" class="btn btn-outline-info">Add</button>
+                        <a href="/tags" class="btn btn-outline-secondary mx-3">Cancel</a>
+                    </div>
+                </div>
+                
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

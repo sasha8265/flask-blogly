@@ -23,19 +23,19 @@ def list_users():
     """List all existing users"""
 
     users = User.query.all()
-    return render_template("list.html", users=users)
+    return render_template("user/users_index.html", users=users)
 
 
 @app.route('/users/<int:user_id>')
 def show_user_detals(user_id):
     user = User.query.get(user_id)
     posts= Post.query.filter_by(user_id=user.id)
-    return render_template('details.html', user=user, posts=posts)
+    return render_template('user/user_details.html', user=user, posts=posts)
 
 
 @app.route('/users/add-user')
 def show_add_user_form():
-    return render_template("add_form.html")
+    return render_template("user/add_user_form.html")
 
 @app.route('/users/add-user', methods=["POST"])
 def add_user():
@@ -54,7 +54,7 @@ def add_user():
 @app.route('/users/<int:user_id>/edit-user')
 def show_edit_user_form(user_id):
     user = User.query.get_or_404(user_id)
-    return render_template("edit_form.html", user=user)
+    return render_template("user/edit_user_form.html", user=user)
 
 
 @app.route('/users/<int:user_id>/edit-user', methods=["POST"])
@@ -82,7 +82,7 @@ def delete_user(user_id):
 @app.route('/users/<int:user_id>/posts/new')
 def show_new_post_form(user_id):
     user = User.query.get_or_404(user_id)
-    return render_template("add_post_form.html", user=user)
+    return render_template("posts/add_post_form.html", user=user)
 
 
 @app.route('/users/<int:user_id>/posts/new', methods=["POST"])
@@ -100,13 +100,13 @@ def new_post(user_id):
 def show_post_details(post_id):
     post = Post.query.get_or_404(post_id)
     user = Post.query.get_or_404(post.user_id)
-    return render_template("post_details.html", post=post, user=user)
+    return render_template("posts/post_details.html", post=post, user=user)
 
 
 @app.route('/posts/<int:post_id>/edit-post')
 def show_edit_post_form(post_id):
     post = Post.query.get_or_404(post_id)
-    return render_template("edit_post.html", post=post)
+    return render_template("posts/edit_post.html", post=post)
 
 
 @app.route('/posts/<int:post_id>/edit-post', methods=["POST"])
@@ -130,3 +130,5 @@ def delete_post(post_id):
     db.session.commit()
 
     return redirect(f"/users/{user.id}")
+
+

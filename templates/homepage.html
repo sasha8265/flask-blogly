@@ -45,13 +45,15 @@
                                 class="link-secondary" href="/users/{{post.user_id}}">{{post.user.first_name}} {{post.user.last_name}}</a></p>
                     </div>
             
+                    {% if post.tags %}
                     <div class="col text-end">
-                        <!-- {% for tag in post_tags %} -->
+                        {% for tag in post.tags %}
 
-                        <a href="" class="btn btn-primary btn-sm mx-2">{{ tag.tag_name }}</a>
+                        <a href="/tags/{{ tag.id }}" class="btn btn-primary btn-sm mx-2">{{ tag.tag_name }}</a>
 
-                        <!-- {% endfor %} -->
+                        {% endfor %}
                     </div>
+                    {% endif %}
                 </div>
                 
                 <hr>

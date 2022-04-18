@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h2 class="display-4 mb-4">Edit Tag:</h2>
+            <h3 class="fs-4 mb-5">{{tag.tag_name}}</h3>
+
+            <form method="POST">
+
+                <div class="mb-3">
+                    <input name="tag_name" class="form-control" id="tag_name" placeholder="tag name">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-outline-info">Save</button>
+                    <a href="/tags" class="btn btn-outline-secondary mx-3">Cancel</a>
+                </div>
+
+
+            </form>
+
+            {% endblock %}
