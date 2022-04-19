@@ -46,13 +46,22 @@
                             </span>{{user.first_name}} {{user.last_name}}
                         </a>
                     </h3>
+                    {% if user.posts %}
+                    <ul>
+                        {% for post in user.posts %}
+                        <li>
+                            <a href="/posts/{{post.id}}">
+                                {{ post.title}} | {{ post.format_date }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 </div>
-                
                 {% endfor %}
             </ul>
         </div>
     </div>
-
 </div>
 
 {% endblock %}

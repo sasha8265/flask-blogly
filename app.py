@@ -25,7 +25,8 @@ def list_users():
     """List all existing users"""
 
     users = User.query.all()
-    return render_template("user/users_index.html", users=users)
+    posts = Post.query.all()
+    return render_template("user/users_index.html", users=users, posts=posts)
 
 
 @app.route('/users/<int:user_id>')
@@ -146,5 +147,7 @@ def show_all_tags():
     return render_template("tags/tags_index.html", tags=tags)
 
 
-# @app.route('/tags/<int:tag_id>')
-# def show_tag_details(tag_id):
+@app.route('/tags/<int:tag_id>')
+def show_tag_details(tag_id):
+    tag = Tag.query.get(tag_id)
+    return render_template('tags/tag_details.html', tag=tag)
